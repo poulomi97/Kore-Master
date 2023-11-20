@@ -25,8 +25,8 @@ open class KABotClient: NSObject {
         didSet {
             if isConnected {
                 //whenever is connected is true it fetches the history if any
-                getRecentHistory()
-                fetchMessages()
+                //getRecentHistory()
+                //fetchMessages()
             }
         }
     }
@@ -661,7 +661,7 @@ open class KABotClient: NSObject {
                 botClient.getHistory(offset: offset, success: { [weak self] (responseObj) in
                     if let responseObject = responseObj as? [String: Any], let messages = responseObject["messages"] as? Array<[String: Any]> {
                         botHistoryIcon = responseObject["icon"] as? String
-                        self?.insertOrUpdateHistoryMessages(messages)
+                        //self?.insertOrUpdateHistoryMessages(messages)
                     }
                     self?.historyRequestInProgress = false
                     block?(true)

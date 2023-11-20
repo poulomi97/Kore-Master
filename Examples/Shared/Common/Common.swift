@@ -124,4 +124,17 @@ open class Utilities: NSObject {
                return decodedimage!
            }
        }
+    public static func getUUID() -> String {
+        print("func UUID")
+        var id: String?
+        let userDefaults = UserDefaults.standard
+        if let UUID = userDefaults.string(forKey: "UUID") {
+            id = UUID
+        }else{
+            let date: Date = Date()
+            id = String(format:"emai1%1d%@", date.timeIntervalSince1970,"@paraspara.com" )
+            userDefaults.set(id, forKey: "UUID")
+        }
+            return id!
+    }
 }
